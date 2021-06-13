@@ -2,24 +2,34 @@ package espm.invest.currency.common.controller;
 
 import espm.invest.currency.common.datatype.Currency;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @FeignClient("currency-service")
 public interface CurrencyController {
-    @GetMapping("/currency")
+
+
+    @GetMapping("/currencies")
     List<Currency> currency();
 
+    @GetMapping("/currency/{name}")
+    Currency currency(@PathVariable String name);
+
     @GetMapping("/currency/{id}")
-    Currency currency(String id);
+    Currency currencyById(@PathVariable String id);
 
-    @DeleteMapping("/currency/{id}")
-    Currency deleteById(String id);
+    @GetMapping("/currency/{name}/{date}")
+    Currency currency(
+            @PathVariable String name,
+            @PathVariable String date
+    );
 
-    @PostMapping("/currency")
-    Currency save(Currency currency);
+    @GetMapping("/currency") // cotações da mesma moeda
+    List<Currency> cotacoes(
+            @RequestParam String name,
+            @RequestParam String ini,
+            @RequestParam String fim
+    );
 }

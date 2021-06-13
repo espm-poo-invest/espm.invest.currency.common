@@ -1,10 +1,9 @@
 package espm.invest.currency.common.datatype;
 
 import java.util.Date;
-import java.util.UUID;
 
 public class Currency {
-    private UUID id;
+    private String id;
     private String name;
     private Date date;
     private double price;
@@ -13,18 +12,18 @@ public class Currency {
 
     }
 
-    public Currency(UUID id, String name, Date date, double price) {
+    public Currency(String id, String name, Date date, double price) {
         this.id = id;
         this.name = name;
         this.date = date;
         this.price = price;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
