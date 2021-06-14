@@ -17,7 +17,7 @@ public interface CurrencyController {
     @GetMapping("/currency/{name}")
     Currency currency(@PathVariable String name);
 
-    @GetMapping("/currency/{id}")
+    @GetMapping("/currency/id/{id}")
     Currency currencyById(@PathVariable String id);
 
     @GetMapping("/currency/{name}/{date}")
