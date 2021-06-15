@@ -32,4 +32,5 @@ public interface CurrencyController {
             @RequestParam String ini,
             @RequestParam String fim
     );
+
 }
